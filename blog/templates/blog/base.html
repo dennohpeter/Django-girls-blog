@@ -1,32 +1,39 @@
 {% load staticfiles %}
 <html>
 <head>
-    <title>Django Girls blog</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <!--Custom css -->
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Description" content="I'm Dennis Peterson, Fullstack Developer.
+  This is my personal blog">
+  <meta name="author" content="Dennis Peterson">
+  <meta name="copyright" content="© Dennis Peterson 2015-2018">
+  <title>Django Girls blog</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <!--Custom css -->
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
-<div class="page-header">
+  <div class="page-header">
     {% if user.is_authenticated %}
 
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="fa fa-plus"></span> </a>
-    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="fa fa-edit"></span> </a>
+    <a href="{% url 'post_new' %}" class="top-menu" aria-label="new_post"><span class="fa fa-plus"></span> </a>
+    <a href="{% url 'post_draft_list' %}" class="top-menu" aria-label="Post Draft List"><span class="fa fa-edit"></span> </a>
     <p class="top-menu">Hello: {{ user.username }} <small>(<a href="{% url 'logout' %}">Log Out</a>)</small></p>
     {% else %}
     <a href="{% url 'login' %}" class="top-menu"><span class="fa fa-lock"></span> </a>
     {% endif %}
     <h1><a href="/">Django Girls Blog</a></h1>
-</div>
-<div class="content container">
+  </div>
+  <div class="content container">
     <div class="row">
-        <div class="col-md-8">
-            {% block content %}
+      <div class="col-md-8">
+        {% block content %}
 
-            {% endblock %}
-        </div>
+        {% endblock %}
+      </div>
     </div>
-</div>
+  </div>
 </body>
 </html>
